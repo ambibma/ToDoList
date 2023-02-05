@@ -35,12 +35,11 @@ namespace ToDoList.Models
       _rollingCounter++;
       Description = description;
       _instances.Add(this);
-    }
-
-    // public string DisplayTask()
-    // {
-    //   return $"Task# {this.ID}: {this.Description}";
-    // }
+    } 
+    public string DisplayTask()
+      {
+      return "";
+      }
     
     /// <summary>
     /// This method clears the list of all tasks in the to-do list.
@@ -49,9 +48,9 @@ namespace ToDoList.Models
     {
       _instances.Clear();
     }
-    // public static void RemoveTask(int id)
-    // {
-    //   _instances = _instances.Where(task => task.ID != id).ToList();
-    // }
+    public static void RemoveTask(int id)
+    {
+      _instances = _instances.Where(task => task.ID != id).ToList();
+    }
   }
 }

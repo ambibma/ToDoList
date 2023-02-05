@@ -59,14 +59,17 @@ namespace ToDoList.Tests
       Task newTask = new Task("test");
       Assert.AreEqual(typeof(int), newTask.ID.GetType()); 
     }   
-  }
+    [TestMethod]
+      public void DisplayTask_ReturnsTaskDescription_StringDescription()
+    {
+      {
+        string description = "Walk the dog.";
+        Task newTask = new Task(description);
+        string result = newTask.DisplayTask();
+        Assert.AreEqual($"Task# 0: {description}", result);        
+      }  
+    }
+  }                                   
 }
-                                   
-//  start                                                                            finish
-//  ||                                                                                || 
-//  ||                                                                                ||
-//  ||                                                                                ||
-//  ||                                                                                ||
-                                              
 
                                       
