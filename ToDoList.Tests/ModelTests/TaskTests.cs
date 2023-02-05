@@ -44,7 +44,6 @@ namespace ToDoList.Tests
       Assert.AreEqual(updatedDescription, result);
 
     }
-
     [TestMethod] 
     public void GetAll_ReturnsEmptyList_ItemList()
     {
@@ -54,5 +53,20 @@ namespace ToDoList.Tests
 
       CollectionAssert.AreEqual(newList, result);
     }
+    [TestMethod]
+    public void GetID_ReturnID_Int()
+    {
+      Task newTask = new Task("test");
+      Assert.AreEqual(typeof(int), newTask.ID.GetType()); 
+    }   
   }
 }
+                                   
+//  start                                                                            finish
+//  ||                                                                                || 
+//  ||                                                                                ||
+//  ||                                                                                ||
+//  ||                                                                                ||
+                                              
+
+                                      

@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+
 namespace ToDoList.Models
 {
   /// <summary>
@@ -7,8 +9,10 @@ namespace ToDoList.Models
   public class Task
   {
     public string Description {get; set;}
+    public int ID {get;}
     
     private static List<Task> _instances = new List<Task> {};
+    private static int _rollingCounter = new int();
 
     /// <summary>
     /// This method returns a list of all tasks in the to-do list.
@@ -27,9 +31,16 @@ namespace ToDoList.Models
     /// <param name="description">The description of the task</param>
     public Task(string description)
     {
+      ID = _rollingCounter;
+      _rollingCounter++;
       Description = description;
       _instances.Add(this);
     }
+
+    // public string DisplayTask()
+    // {
+    //   return $"Task# {this.ID}: {this.Description}";
+    // }
     
     /// <summary>
     /// This method clears the list of all tasks in the to-do list.
@@ -38,5 +49,9 @@ namespace ToDoList.Models
     {
       _instances.Clear();
     }
+    // public static void RemoveTask(int id)
+    // {
+    //   _instances = _instances.Where(task => task.ID != id).ToList();
+    // }
   }
 }
