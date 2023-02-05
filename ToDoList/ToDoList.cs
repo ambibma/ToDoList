@@ -13,13 +13,7 @@ namespace ToDoList {
       
       while (true)
       {
-        
-        //foreach (Task task in Task.GetAll())
-        // {
-        //   Console.WriteLine(task.DisplayTask());
-        // }
-        // List<Task> Tasks = new List<Task>() {};
-        Console.WriteLine("Would you like to Add, Remove, or View your tasks? (Add/Remove/View)");
+        Console.WriteLine("Would you like to Add, Remove, View your tasks? (Add/Remove/View/Exit)");
         string userInput = Console.ReadLine();
         if (userInput.ToLower() == "add")
         {
@@ -27,12 +21,30 @@ namespace ToDoList {
           string userAddTask = Console.ReadLine();
           new Task(userAddTask);
         }
-        if (userInput.ToLower() == "remove")
+        else if (userInput.ToLower() == "remove")
         {
-          
           Console.WriteLine("Which task would you like to remove? Please enter the number of the task, bee-atch.");
+          foreach (Task task in Task.GetAll())
+          {
+            Console.WriteLine(task.DisplayTask());
+          }
           string userRemoveTask = Console.ReadLine();
-          // Task.RemoveTask(int.Parse(userRemoveTask));
+          Task.RemoveTask(int.Parse(userRemoveTask));
+        }
+        else if (userInput.ToLower() == "view")
+        {
+          foreach (Task task in Task.GetAll())
+          {
+            Console.WriteLine(task.DisplayTask());
+          }
+        }
+        else if (userInput.ToLower() == "exit")
+        {
+        
+        }
+        else
+        {
+          Console.WriteLine("Invalid selection. Try again.");
         }
       }
     }
