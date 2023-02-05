@@ -62,14 +62,19 @@ namespace ToDoList.Tests
     [TestMethod]
       public void DisplayTask_ReturnsTaskDescription_StringDescription()
     {
-      {
-        string description = "Walk the dog.";
-        Task newTask = new Task(description);
-        string result = newTask.DisplayTask();
-        Assert.AreEqual($"Task# 0: {description}", result);        
-      }  
+      string description = "Walk the dog.";
+      Task newTask = new Task(description);
+      string result = newTask.DisplayTask();
+      Assert.AreEqual($"Task# 0: {description}", result);          
     }
-  }                                   
-}
+    [TestMethod]
+    public void RemoveTask_RemovesTaskFromList_TaskList()
+    {
+      Task newTask = new Task("test");
+      Task.RemoveTask(0);
+      List<Task> result = Task.GetAll();
 
-                                      
+      Assert.AreEqual(result.Count, 0);
+    }
+  }                                          
+}                                   

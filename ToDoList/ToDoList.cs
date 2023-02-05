@@ -8,10 +8,13 @@ namespace ToDoList {
   {
     public static void Main()
     {
+      
       Console.WriteLine("Welcome to your To Do List!");
+      
       while (true)
       {
-        foreach (Task task in Task.GetAll())
+        
+        //foreach (Task task in Task.GetAll())
         // {
         //   Console.WriteLine(task.DisplayTask());
         // }

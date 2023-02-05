@@ -39,8 +39,7 @@ namespace ToDoList.Models
     public string DisplayTask()
     {
     return $"Task# {this.ID}: {this.Description}";
-    }
-    
+    }    
     /// <summary>
     /// This method clears the list of all tasks in the to-do list.
     /// </summary>
